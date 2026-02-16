@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>DriveX | Buy Toyota Corolla</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+   
+    <div id="checkoutModal" class=”modal”>
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-body">
+            <div class="checkout-summary">
+                <h3>Order Summary</h3>
+                <div class="selected-car-info">
+                    <img src="RAPTOR.jpg" id="modalCarImg" alt="Selected Car">
+                    <h4 id="modalCarName">RAM TRX</h4>
+                    <p id="modalCarPrice">GHC 3,000,000</p>
+                </div>
+            </div>
+
+            <div class="checkout-form">
+                <h3>Payment Details</h3>
+                <form id="paymentForm">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Expiry</label>
+                            <input type="text" placeholder="MM/YY" required>
+                        </div>
+                        <div class="input-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Confirm Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+</html>

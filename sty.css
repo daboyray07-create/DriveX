@@ -1,0 +1,802 @@
+:root {
+    --bg-dark: #0a0b0d;
+    --sidebar-bg: #1c1e21;
+    --card-bg: #010101;
+    --accent-blue: #2d4a8a;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.logo {
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid #222;
+    margin-bottom: 20px;
+}
+
+.logo span { color: var(--accent-blue); }
+
+.sidebar ul { list-style: none; }
+
+.sidebar li a {
+    display: block;
+    padding: 15px 30px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar li.active a, .sidebar li a:hover {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+.sidebar li i { margin-right: 15px; }
+
+.logout { margin-top: auto; }
+
+/* Main Content Area */
+.content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Grid Layout */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #050000;
+    padding: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image-container{
+    max-width: 100%;
+    max-height: 90%;
+}
+
+.card-image-container img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+.btn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+/* Container for the cars */
+.car-grid {
+    display: grid;
+    /* This creates 3 equal columns. On smaller screens, it adjusts automatically */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Space between the cards */
+    padding-bottom: 50px;
+}
+
+/* Card Styling (Consistent with your Design) */
+.card {
+    background-color: #0d0e10;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #324a7d;
+}
+
+/* Make sure images don't stretch weirdly */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.price {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustment for tablets/phones */
+@media (max-width: 1100px) {
+    .car-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 700px) {
+    .car-grid {
+        grid-template-columns: 1fr; /* 1 column on phones */
+    }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: linear-gradient(145deg, #121418, #0a0b0d);
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #324a7d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: #324a7d;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-card p {
+    color: #8a8a8a;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    min-height: 80px; /* Keeps cards aligned if text length varies */
+}
+
+/* A secondary button style to differentiate from "Buy" */
+.btn-outline {
+    background: transparent;
+    border: 1px solid #324a7d;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #324a7d;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+/* --- LOGIN PAGE STYLES --- */
+
+.login-wrapper {
+    background-color: #0a0b0d; /* Matching DriveX dark theme */
+    height: 100vh;   
+    width: 80%;          /* Take up 100% of the screen height */
+    display: flex;             /* Enable Flexbox */
+    align-items: center;       /* Vertical centering */
+    justify-content: center;    /* Horizontal centering */
+    padding: 90px;
+}
+
+.login-card {
+    background: linear-gradient(145deg, #121418, #0d0e10);
+    border: 1px solid #222;
+    padding: 50px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;          /* Prevents the box from getting too wide on laptop */
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+.login-card h2 {
+    color: #fff;
+    margin: 20px 0 10px;
+    font-size: 1.8rem;
+}
+
+.sub-text {
+    color: #8a8a8a;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #bbb;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    background: #16181c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-section {
+    Text-align: left;
+    Margin: 15px 0;
+    Color: #ccc;
+    Font-size: 0.9rem;
+}
+
+.form-section p {
+    Margin-bottom: 8px;
+    Color: #3498db; /* Your light blue accent color */
+    Font-weight: bold;
+}
+
+.form-section label {
+    Display: block;
+    Margin-bottom: 8px;
+    Cursor: pointer;
+}
+
+/* Styling the hyperlinked logo */
+.form-logo {
+    Width: 120px;
+    Margin-bottom: 20px;
+    Transition: transform 0.3s ease;
+}
+
+.form-logo:hover {
+    Transform: scale(1.05); /* Slight pop on hover */
+}
+
+
+.input-group input:focus {
+    border-color: #324a7d; /* DriveX blue glow */
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #8a8a8a;
+    margin-bottom: 25px;
+}
+
+.form-options a {
+    color: #324a7d;
+    text-decoration: none;
+}
+
+.auth-footer {
+    margin-top: 25px;
+    color: #8a8a8a;
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-btn {
+    Width: 100%;
+    Padding: 12px;
+    Background-color: #3498db; /* Your signature blue */
+    Color: white;
+    Border: none;
+    Border-radius: 5px;
+    Font-size: 1rem;
+    Font-weight: bold;
+    Cursor: pointer;
+    Transition: background-color 0.3s ease, transform 0.2s ease;
+    Margin-top: 10px;
+}
+
+.login-btn:hover {
+    Background-color: #2980b9; /* Slightly darker blue on hover */
+    Transform: translateY(-2px); /* Lift effect */
+}
+
+.login-btn:active {
+    Transform: translateY(0); /* Press down effect */
+}
+
+
+/* --- CHECKOUT MODAL STYLES --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Dim background */
+    backdrop-filter: blur(8px); /* Frost effect */
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #121418, #0a0b0d);
+    border: 1px solid var(--border-color);
+    margin: 5% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+}
+
+.modal-body {
+    display: flex;
+    gap: 40px;
+}
+
+.checkout-summary, .checkout-form {
+    flex: 1;
+}
+
+.selected-car-info img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin: 20px 0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-dim);
+}
+
+.cart-item {
+    Background: var(--card-bg);
+    Border: 1px solid var(--border-color);
+    Border-radius: 12px;
+    Display: flex;
+    Align-items: center;
+    Padding: 20px;
+    Margin-bottom: 15px;
+    Gap: 20px;
+}
+
+.cart-item img {
+    Width: 120px;
+    Height: 80px;
+    Object-fit: contain;
+}
+
+.item-details { flex: 1; }
+
+.item-price {
+    Font-weight: 700;
+    Font-size: 1.2rem;
+}
+
+.remove-btn {
+    Background: transparent;
+    Border: none;
+    Color: #ff4d4d;
+    Cursor: pointer;
+    Font-size: 1.2rem;
+}
+
+.cart-summary {
+    Margin-top: 30px;
+    Background: var(--sidebar-bg);
+    Padding: 30px;
+    Border-radius: 12px;
+    Border: 1px solid var(--border-color);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background: #1a1a1a;
+    color: #3498db;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.cart-table td {
+    padding: 20px;
+    border-bottom: 1px solid #222;
+    vertical-align: middle;
+}
+
+.cart-img {
+    width: 120px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.price, .total-amount {
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.total-label {
+    text-align: right;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+/* Button Layout */
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.continue-btn {
+    color: #888;
+    text-decoration: none;
+    line-height: 45px;
+}
+
+.checkout-btn {
+    background: #3498db;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #2980b9;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+}
+
+
+.buy-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.buy-container input, .buy-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.buy-container button {
+    width: 100%;
+    padding: 12px;
+    background: #35383b;
+}
+
+.buy-container button:hover {
+    background: #101112;
+}
+
+.layout-table {
+    border: none;   
+}
+
+.layout-table td {
+    border: none;
+    padding: 50px;
+}
+
+.data-table {
+     width: 70%;
+     margin: 20px;
+     border-collapse: collapse ;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid black;
+    padding: 10px;
+
+}
+
+h2 {
+    font-size: 80px;
+    color: rgb(252, 253, 254);
+    font-style: italic;
+}
+
+.layout-table{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin: 20px 0;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* --- Vehicle Specifications Table Styling --- */
+
+.specs-section {
+    Margin-top: 50px;
+    Padding: 20px;
+    Background: rgba(255, 255, 255, 0.03);
+    Border-radius: 15px;
+}
+
+.specs-section h3 {
+    Color: #ffffff;
+    Margin-bottom: 20px;
+    Font-size: 1.5rem;
+}
+
+/* Requirement 5: Visible Borders */
+.data-table {
+    Width: 100%;
+    Border-collapse: collapse;
+    Border: 1px solid #444; 
+    Color: #e0e0e0;
+}
+
+.data-table th, 
+.data-table td {
+    Border: 1px solid #444; /* Visible border requirement */
+    Padding: 15px;
+    Text-align: left;
+}
+
+.data-table th {
+    Background-color: #1a1a1a;
+    Color: #3498db; /* DriveX Blue accent */
+    Text-transform: uppercase;
+    Font-size: 0.85rem;
+    Letter-spacing: 1px;
+}
+
+.data-table tr:nth-child(even) {
+    Background-color: rgba(255, 255, 255, 0.02);
+}
+
+.data-table tr:hover {
+    Background-color: rgba(52, 152, 219, 0.1); /* Subtle hover effect */
+}
+
+/* Absolute Link Styling */
+.source-link {
+    Margin-top: 20px;
+    Font-size: 0.9rem;
+    Color: #888;
+}
+
+.source-link a {
+    Color: #3498db;
+    Text-decoration: underline;
+}
+
+/* Style for tables inside the cards */
+.card-specs {
+    Width: 100%;
+    Margin-top: 10px;
+    Border-collapse: collapse; /* Merges borders into single lines */
+    Font-size: 0.85rem;
+    Color: #ccc;
+}
+
+/* Requirement #5: Visible Borders */
+.card-specs td {
+    Border: 1px solid #444; 
+    Padding: 8px;
+    Text-align: left;
+}
+
+/* Requirement #3: Absolute Link styling */
+.brand-link {
+    Display: inline-block;
+    Margin: 10px 0;
+    Color: #3498db;
+    Font-size: 0.8rem;
+    Text-decoration: underline;
+}
+
+.brand-link:hover {
+    Color: #fff;
+}
+
+/* Rollover Image Styles */
+.rollover-container {
+    Position: relative; /* Essential for stacking */
+    Width: 100%;
+    Max-width: 800px;
+    Margin: 20px auto;
+    Border: 2px solid #3498db; /* Optional: adds style */
+    Border-radius: 15px;
+    Overflow: hidden;
+    Cursor: crosshair;
+}
+
+.rollover-container img {
+    Width: 100%;
+    Display: block;
+    Transition: opacity 0.5s ease-in-out; /* Smooth swap */
+}
+
+/* Position the interior image exactly over the exterior image */
+.img-hover {
+    Position: absolute;
+    Top: 0;
+    Left: 0;
+    Opacity: 0; /* Hidden by default */
+}
+
+/* THE ROLLOVER ACTION */
+.rollover-container:hover .img-hover {
+    Opacity: 1; /* Show interior on hover */
+}
+
+.overlay-tag {
+    Position: absolute;
+    Bottom: 15px;
+    Right: 15px;
+    Background: rgba(0, 0, 0, 0.7);
+    Color: #3498db;
+    Padding: 5px 12px;
+    Border-radius: 5px;
+    Font-size: 0.8rem;
+}
